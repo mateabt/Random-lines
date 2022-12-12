@@ -1,0 +1,71 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{imakeidx}
+\usepackage[utf8]{inputenc}
+\makeindex
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage[a4paper,includeheadfoot,margin=3cm]{geometry}
+\usepackage[slovene] {babel}
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+	
+\begin{center}
+	\normalsize
+	UNIVERZA V LJUBLJANI
+	
+	FAKULTETA ZA MATEMATIKO IN FIZIKO
+	
+	Oddelek za matematiko
+\end{center}
+\vspace{6cm}	
+	\vspace{1.5cm}
+	{\Large \bfseries Random lines
+		\vspace{0.1cm}} \\  
+	\vspace{0.5cm} {\normalsize Matea Naumovska, Andreja Sitar}
+	\vspace{0.2cm} \\
+	\vspace{0.1cm}{\normalsize Finančni praktikum}
+	\vspace{2cm} \\
+	\vspace{7cm}
+	{\normalsize Ljubljana, December 2022}
+\end{center}
+
+\newpage
+\section{Navodila}	
+V ravnini lahko premico predstavimo na več načinov. Za stohastično geometrijo je priročno, da premico $l$ parametriziramo s parom ($p$,$\theta$), kjer je $p$ razdalja od izvora do premice, $\theta$ pa kot, ki ga premica oklepa z $x$ osjo. 
+Naj bosta $C$ in $C'$ konveksna objekta v ravnini, kjer velja da $C'$ leži v notranjosti $C$. Želimo analizirati verjetnost, da naključna premica, ki seka $C$, seka tudi $C'$.
+Premice izbiramo enakomerno naključno glede na zgoraj opisano parametrizacijo. 
+\section{Reševanje}
+Ta problem se rešuje s pomočjo že znanega problema Buffonove igle. Premico v ravnini bomo parametrizirali s parom ($p$,$\theta$), kjer je $p$ razdalja od izvora do premice, $\theta$ pa kot, ki ga premica oklepa z $x$ osjo. 
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=4cm]{param.jpg}
+            \caption{Primer premice podane s parom ($p$,$\theta$)}
+	\end{center}
+\end{figure}
+\\
+Torej je enačba premice enaka $$x\cos{\theta}+y\sin{\theta}-d=0.$$
+Mero množice $Y$ premic lahko definiramo z integralom $$m(Y)=\int_{Y} f(p,\theta) dY=\iint f(p,\theta)\,dp\,d\theta,$$kjer je $f(p,\theta)$ konstantna funkcija, ker vemo, da je ta mera nespremenljiva za toge premike ravnine.\\
+\\
+Naj bo $X$ množica vseh afinih premic v $\mathbb{R}^2$ in $Z_1$ naključna spremenljivka, ki šteje presečišča naključne premice z odsekom dolžine $L_1$. Potem je integral $$\int_{X} Z_1 dX $$ odvisen le od $L_1$. Ker $Z_1$ zavzema le vrednosti 0 ali 1, je ta integral enak meri množice vseh
+premic, ki sekajo dani segment ($\int_{X} Z_1 dX=m(X)$). Ker je vrednost integrala odvisna le od $L_1$, to vrednost označimo z $g(L_1).$ \\
+Sedaj lahko ponovimo utemeljitev za rešitev problema Buffonove igle: Število presečišč naključno izbrane premice s fiksno mnogokotno črto, sestavljeno iz odsekov dolžin $L_1$, $L_2$,... je
+$$\int_{X} (Z_1+Z_2+\cdots) dX=g(L_1+L_2+\cdots).$$
+To se zaradi linearnosti integralov ujema z 
+$$\int_{X} Z_1 dX + \int_{X} Z_2 dX+\cdots=g(L_1)+g(L_2)+\cdots,$$
+iz česar sklepamo, da obstaja konstanta $r$, taka da $$g(L)=rL.$$
+Če je $C$ konveksna krivulja v ravnini dolžine $L$ in $Z_C$ označuje naključno spremenljivko, ki šteje presečišča $C$ z naključno premico, potem dobimo $$\int_{X} Z_C dX=rL.$$
+Naj bosta zdaj sta $K_1$ in $K_2$ kompaktni konveksni množici v ravnini z nepraznima notranjostma z mejnima krivuljama $C_1 =\partial K_1$ in $C_2 =\partial K_2$ dolžin $L_1$ in $L_2$. Sledi $$\int_{X} Z_{C_i} dX=rL_i,\hspace{1cm} i=1,2.$$
+Ker sta množici $K_i$ konveksni, premica seka $C_i$ bodisi dvakrat bodisi nikoli. Naključni spremenljivki $Z_{C_i}$ torej zavzameta le vrednosti 2 in 0 in velja  $$\int_{X} Z_{C_i} dX=2L_i,\hspace{1cm} i=1,2.$$
+Odgovor na vprašanje, s kakšno verjetnostjo naključna premica seka konveksno množico $K_1$, če je $K_1 \subseteq K_2$ in že vemo, da premica seka množico $K_2$ je $$\frac{\int_{X} Z_{C_q} dX}{\int_{X} Z_{C_2} dX}=\frac{2L_1}{2L_2}=\frac{L_1}{L_2}=\frac{obseg(K_1)}{obseg(K_2)}.$$
+\\
+V našem primeru je torej 
+$$P(premica\ l\ seka\ C'\ |\ premica\ l\ seka\ C)=\frac{obseg(C')}{obseg(C)}.$$
+\section{Načrt za nadaljnje delo}
+
+
+\end{document}
