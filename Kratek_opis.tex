@@ -10,6 +10,7 @@
 \usepackage{amssymb}
 \usepackage[a4paper,includeheadfoot,margin=3cm]{geometry}
 \usepackage[slovene] {babel}
+
 \begin{document}
 \thispagestyle{empty}
 \begin{center}
@@ -66,6 +67,11 @@ Odgovor na vprašanje, s kakšno verjetnostjo naključna premica seka konveksno 
 V našem primeru je torej 
 $$P(premica\ l\ seka\ C'\ |\ premica\ l\ seka\ C)=\frac{obseg(C')}{obseg(C)}.$$
 \section{Načrt za nadaljnje delo}
-
-
+V nadaljevanju bova napisali program tako, da bo najprej generiral poljubna konveksna objekta $C$ in $C'$, kjer $C' \subseteq C$. To bova storili ali z dvema poljubnima konveksnima objektoma, kjer bi za $C'$ vzeli njun presek ali pa s pomočjo "convex haul", kjer bi za $C'$ vzeli neko podmnožico točk in jih povezali. 
+Ko bosta $C$ in $C'$ izbrana, bova izbrali različne poljubne premice v zgoraj opisani parametrizaciji in najprej pogledali, če seka $C$. Če da bova pogledali še, če seka tudi $C'$.
+\begin{thebibliography}{9}
+\bibitem{geometric} L.A. Santalo. \textit{Integral geometry and geometric probability}. Addison-Wesley Publishing Co., Reading, Mass.-London-Amsterdam, pp. 12-33, 1976.
+\bibitem{schuster} Franz Schuster. \textit{Integralgeometrie}. (German): pp. 3–6, 2017.
+\bibitem{adamwebsite} Adam G. Weyhaupt: The Cauchy-Crofton Formula, 2003,\\\texttt{https://www.siue.edu/~aweyhau/project.html}
+\end{thebibliography}
 \end{document}
