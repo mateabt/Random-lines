@@ -76,10 +76,11 @@ for plot_id in (1, 2, 3, 4, 5):
         a=np.random.uniform(0, 10, size=(n, 2)) #dr tocka skozi katera grejo premice
         
         for i in range(len(b)):
-            ax.axline(a[i],b[i], linewidth=1, color='k') 
+          #  ax.axline(a[i],b[i], linewidth=1, color='k') 
+            ax.axline(b[i],slope=np.random.uniform(-np.pi,np.pi),color='k')
         
         # a modre b rdece
-        ax.plot(*a.T, 'bo',markersize=3)
+        #ax.plot(*a.T, 'bo',markersize=3)
         ax.plot(*b.T, 'ro',markersize=3)
         
         
