@@ -4,8 +4,8 @@ import numpy as np
 import numpy_indexed as npi
 from matplotlib.path import Path
 
-
-points = np.random.uniform(0, 10, size=(15, 2))  # Random points in 2-D (15 between 0 ans 10)
+num=15
+points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
 hull = ConvexHull(points) 
 
 points1 = npi.difference(points,points[hull.vertices]) #tocke brez tiste na ovojnici C1
