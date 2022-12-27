@@ -15,7 +15,7 @@ hull1= ConvexHull(points1)
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_misses = 0 #koliko krat NE gre skozi obe
+num_tries = 8 #koliko krat NE gre skozi obe
 
 
 
@@ -63,7 +63,7 @@ for plot_id in (1, 2, 3, 4, 5):
         for simplex in hull1.simplices: # hull.simplicies ti da indekse 
             ax.plot(points1[simplex, 0], points1[simplex, 1], 'lightgreen') #narise ovojnico v cyan  
         
-        n = 8 # stevilo premic
+        n = num_tries # stevilo premic
         b = np.empty((n, 2))
         for i in range(n):
             #nakljucna tocka v C skozi katero grejo
@@ -83,9 +83,6 @@ for plot_id in (1, 2, 3, 4, 5):
         ax.plot(*b.T, 'ro',markersize=3)
         
         
-        
-           
-
         
     ax.set_xticks(range(11)) # velikost osi 0-10
     ax.set_yticks(range(11))
