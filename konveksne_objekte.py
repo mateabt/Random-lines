@@ -77,9 +77,7 @@ for plot_id in (1, 2, 3, 4, 5):
         
         for i in range(len(b)):
           #  ax.axline(a[i],b[i], linewidth=1, color='k')
-          
-          # od o do pi morda dovolj? 
-            ax.axline(b[i],slope=np.random.uniform(-np.pi,np.pi),color='k')
+            ax.axline(b[i],slope=np.random.uniform((-np.pi)/2,(np.pi)/2),color='k')
         
         # a modre b rdece
         #ax.plot(*a.T, 'bo',markersize=3)
