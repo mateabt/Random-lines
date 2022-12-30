@@ -22,8 +22,7 @@ num_hits = 0 # gre skozi obe hkrati
 num_tries = 4 #koliko krat NE gre skozi obe (stevilo premic)
 num_miss =0
 
-trikotniki= len(list(combinations(points1, 3) )) # koliko krat bomo preverili razlicne kombinacije na trikotnike ce seka
-# z koordinata bomo dali 1
+
 
 def magnitude(vector):
    return np.sqrt(np.dot(np.array(vector),np.array(vector)))
@@ -77,88 +76,7 @@ for i in range(len(b)):
         break
     
 print(num_hits)   
-#def line_triangle_intersection(
-#    vertices: np.ndarray,
-#    ray_origin: np.ndarray,
-#    ray_direction: np.ndarray,
-#    culling: bool = False,
-#    epsilon: float = 1e-6,
-#) -> Union[bool, Tuple[float, float, float]]:
-#    """
-#    kako naj definiram naklpn premice?
-#   
-#    """
-#    vertex_0 = vertices[0]
-#    vertex_1 = vertices[1]
-#    vertex_2 = vertices[2]
-#
-#    edge_1 = vertex_1 - vertex_0
-#    edge_2 = vertex_2 - vertex_0
-#
-#    p_vec = np.cross(ray_direction, edge_2)
-#
-#    determinant = np.dot(p_vec, edge_1)
-#
-#    if culling:
-#        if determinant < epsilon:
-#            return False
-#
-#        t_vec = ray_origin - vertex_0
-#        u_ = np.dot(p_vec, t_vec)
-#        if u_ < 0.0 or u_ > determinant:
-#            return False
-#
-#        q_vec = np.cross(t_vec, edge_1)
-#        v_ = np.dot(q_vec, ray_direction)
-#        if v_ < 0.0 or (u_ + v_) > determinant:
-#            return False
-#
-#        inv_determinant = 1.0 / determinant
-#        t = np.dot(q_vec, edge_2) * inv_determinant
-#        u = u_ * inv_determinant
-#        v = v_ * inv_determinant
-#
-#        return t, u, v
-#
-#    else:
-#        if np.abs(determinant) < epsilon:
-#            return False
-#
-#        inv_determinant = 1.0 / determinant
-#
-#        t_vec = ray_origin - vertex_0
-#        u = np.dot(p_vec, t_vec) * inv_determinant
-#        if u < 0.0 or u > 1.0:
-#            return False
-#
-#        q_vec = np.cross(t_vec, edge_1)
-#        v = np.dot(q_vec, ray_direction) * inv_determinant
-#        if v < 0.0 or (u + v) > 1.0:
-#            return False
-#
-#        t = np.dot(q_vec, edge_2) * inv_determinant
-#        if t < epsilon:
-#            return False
-#        return t, u, v
-##Morda drugo tocko ce najdemo
-## k=(y2-y1)/(x2-x1)
-## k= dy/dx
-#
-#
-##### ze bodo ponavljale XXXXX
-#for i in range(0, num_tries): #za vsaka premica
-#    for j in range(0, trikotniki):# vsak trikotnik
-#        vertices=(list(combinations(points1, 3)))[j]
-#        xyz = np.append(vertices,1)
-#        nov_bi=np.append(b[i],0)
-#        t = line_triangle_intersection(vertices,nov_bi,np.array[0,0,slope[i]])
-#        if t != False:
-#          num_hits += 1
-#        else:
-#          num_miss += 1
-#          
-#Verjetnost=num_hits/num_tries
-#print(Verjetnost)
+
 
 
 for plot_id in (1, 2, 3, 4, 5): 
