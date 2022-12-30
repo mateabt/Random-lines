@@ -20,9 +20,9 @@ bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
 num_tries = 4 #koliko krat NE gre skozi obe (stevilo premic)
+num_miss =0
 
 trikotniki= len(list(combinations(points1, 3) )) # koliko krat bomo preverili razlicne kombinacije na trikotnike ce seka
-
 # z koordinata bomo dali 1
 
 
@@ -38,7 +38,7 @@ for i in range(n):
 
 
 
-def ray_triangle_intersection(
+def line_triangle_intersection(
     vertices: np.ndarray,
     ray_origin: np.ndarray,
     ray_direction: np.ndarray,
@@ -46,13 +46,8 @@ def ray_triangle_intersection(
     epsilon: float = 1e-6,
 ) -> Union[bool, Tuple[float, float, float]]:
     """
-    Examples
-    --------
-    >>> vertices = np.array([[0.0, 0.0, 0.0], [0.0, 10.0, 0.0], [10.0, 0.0, 0.0]])
-    >>> ray_origin = np.array([1.0, 1.0, 1.0])
-    >>> ray_direction = np.array([0.0, 0.0, -1.0])
-    >>> intersection = ray_triangle_intersection(vertices, ray_origin, ray_direction)
-    (1.0, 0.1, 0.1)
+    kako naj definiram naklpn premice?
+   
     """
     vertex_0 = vertices[0]
     vertex_1 = vertices[1]
@@ -106,107 +101,29 @@ def ray_triangle_intersection(
         if t < epsilon:
             return False
         return t, u, v
-
-class Vec3: #vektor v R3
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
-
-    def sub(self, v):
-        return Vec3(self.x - v.x,
-                    self.y - v.y,
-                    self.z - v.z)
-
-    def dot(self, v): #skalaren
-        return self.x * v.x + self.y * v.y + self.z * v.z
-
-    def cross(self, v): #vektorski
-        return Vec3(self.y * v.z - self.z * v.y,
-                    self.z * v.x - self.x * v.z,
-                    self.x * v.y - self.y * v.x)
-
-    def length(self): #dolzina
-        return math.sqrt(self.x * self.x +
-                         self.y * self.y +
-                         self.z * self.z)
-        
-    def normalize(self): #normalizacija
-        l = self.length()
-        return Vec3(self.x / l, self.y / l, self.z / l)
-
-
-num_miss =0
+#Morda drugo tocko ce najdemo
+# k=(y2-y1)/(x2-x1)
+# k= dy/dx
 slope=[]
 for i in range(len(b)):
                slope=np.append(slope,np.random.uniform((-np.pi)/2,(np.pi)/2))
 
-
+#### ze bodo ponavljale XXXXX
 for i in range(0, num_tries): #za vsaka premica
     for j in range(0, trikotniki):# vsak trikotnik
         vertices=(list(combinations(points1, 3)))[j]
         xyz = np.append(vertices,1)
         nov_bi=np.append(b[i],0)
-        t = ray_triangle_intersection(vertices,nov_bi,np.array[0,0,slope[i]])
-        if t >= 0:
+        t = line_triangle_intersection(vertices,nov_bi,np.array[0,0,slope[i]])
+        if t != False:
           num_hits += 1
         else:
           num_miss += 1
-#vertices = np.array([[0.0, 0.0, 0.0], [0.0, 10.0, 0.0], [10.0, 0.0, 0.0]])
- #   >>> ray_origin = np.array([1.0, 1.0, 1.0])
- #   >>> ray_direction = np.array([0.0, 0.0, -1.0])
- #   >>> intersection = ray_triangle_intersection(vertices, ray_origin, ray_direction)
- #   (1.0, 0.1, 0.1)
+          
+Verjetnost=num_hits/num_tries
+print(Verjetnost)
 
 
-
-#def ray_triangle_intersect(r, v0, v1, v2): #presek premice z trikotnik
-#    v0v1 = v1.sub(v0)
-#    v0v2 = v2.sub(v0)
-#    pvec = r.direction.cross(v0v2)
-#
-#    det = v0v1.dot(pvec)
-#
-#    if det < 0.000001:
-#        return float('-inf')
-#
-#    invDet = 1.0 / det
-#    tvec = r.orig.sub(v0)
-#    u = tvec.dot(pvec) * invDet
-#
-#    if u < 0 or u > 1:
-#        return float('-inf')
-#
-#    qvec = tvec.cross(v0v1)
-#    v = r.direction.dot(qvec) * invDet
-#
-#    if v < 0 or u + v > 1:
-#        return float('-inf')
-#
-#    return v0v2.dot(qvec) * invDet
-#
-#
-#
-# 
-#
-#
-#
-#
-#for i in range(0, num_tries): #za vsaka premica
-#    for j in range(0, trikotniki):   # vsak trikotnik
-#        t = ray_triangle_intersect(r, vertices[j*3 + 0],
-#                                      vertices[j*3 + 1],
-#                                      vertices[j*3 + 2])
-#        if t >= 0:
-#          num_hits += 1
-#        else:
-#          num_miss += 1
-#
-#
-#    
-#
-#
-#
 for plot_id in (1, 2, 3, 4, 5): 
     fig, ax = plt.subplots(ncols=1, figsize=(5, 3)) #unpacks tuple into figure and ax (Ncols=Number of columns of the subplot grid default=1 lahko bi zbrisali ,figsize=velikost kvadratka)
     
