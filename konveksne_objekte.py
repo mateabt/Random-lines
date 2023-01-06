@@ -19,7 +19,6 @@ from scipy.spatial.distance import euclidean
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
 hull = ConvexHull(points) 
-
 points1 = npi.difference(points,points[hull.vertices]) #tocke brez tiste na ovojnici vecje C
 hull1= ConvexHull(points1) 
 points2= points1[hull1.vertices] # tocke na C1 notranji
@@ -67,15 +66,14 @@ for i in range(len(b)):
 
 for i in range(len(b)):
     r = b[i]
-    d1 = (math.cos(theta[i]),math.sin(theta[i])) # v eno smer
-    #d2 =(-math.cos(theta[i]),-math.sin(theta[i])) # v dr smer
-    
+    d1 = ( math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
+    r1 = np.add(r,d1) #pristejemo k rayorigin
     
     for j in range(len(points2)):
         z1 =points2[j-1]
         z2 = points2[j]
 
-        if lineRayIntersectionPoint(r,d1,z1,z2)==True :
+        if lineRayIntersectionPoint(r,r1,z1,z2)==True :
             num_hits+=1
             break
         
