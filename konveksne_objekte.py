@@ -83,9 +83,9 @@ vertices = hull.vertices.tolist() + [hull.vertices[0]]
 perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices], points[vertices][1:])])
 
 vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
-perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices1], points[vertices1][1:])])
+perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])])
 
-verjetnost_2 =vertices1-vertices
+verjetnost_2 =perimeter1/perimeter
 print(verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
