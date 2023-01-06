@@ -7,7 +7,7 @@ from itertools import combinations
 from typing import Union, Tuple
 import random
 import math
-
+from scipy.spatial.distance import euclidean
 
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
@@ -21,7 +21,7 @@ points2= points1[hull1.vertices] # tocke na C1 notranji
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries = 4 #koliko krat NE gre skozi obe (stevilo premic)
+num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
 
 
 # ne dela pravilno
@@ -79,8 +79,13 @@ verjetnost_1=num_hits/num_tries
 print (verjetnost_1)
 
 
+vertices = hull.vertices.tolist() + [hull.vertices[0]]
+perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices], points[vertices][1:])])
 
-verjetnost_2 =hull1.area/hull.area
+vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
+perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices1], points[vertices1][1:])])
+
+verjetnost_2 =vertices1-vertices
 print(verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
