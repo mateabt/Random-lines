@@ -7,6 +7,7 @@ from itertools import combinations
 from typing import Union, Tuple
 import random
 import math
+from scipy.spatial.distance import euclidean
 
 
 num=15
@@ -22,7 +23,6 @@ bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
 num_tries = 4 #koliko krat NE gre skozi obe (stevilo premic)
-num_miss =0
 
 
 
@@ -51,22 +51,7 @@ def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     if z1*z2<=0 and v1*v2<=0:
         return True
     return False
-
-    
-    
-    
-#
-#    v1 = rayOrigin - point1
-#    v2 = point2 - point1
-#    v3 = np.array([-rayDirection[1], rayDirection[0]])
-#    t1 = np.cross(v2, v1) / np.dot(v2, v3)
-#    t2 = np.dot(v1, v3) / np.dot(v2, v3)
-#    if t1 >= 0.0 and t2 >= 0.0 and t2 <= 1.0:
-#        return [rayOrigin + t1 * rayDirection]
-#    return []
-#
-#
-#
+   
 
 n = num_tries # stevilo premic
 b= np.empty((n, 2))
@@ -85,20 +70,22 @@ for i in range(len(b)):
 
 for i in range(len(b)):
     r = b[i]
-    d1 = (math.cos(theta[i]),math.sin(theta[i])) # v eno smer
-    d2 =(-math.cos(theta[i]),-math.sin(theta[i])) # v dr smer
+    d1 = (10*math.cos(theta[i]),10*math.sin(theta[i])) # v eno smer
+    d2 =(-10*math.cos(theta[i]),-10*math.sin(theta[i])) # v dr smer
     
     
     for j in range(len(points2)):
         z1 =points2[j-1]
         z2 = points2[j]
 
-        if lineRayIntersectionPoint(r,d1,z1,z2) or lineRayIntersectionPoint(r,d2,z1,z2):
+        if lineRayIntersectionPoint(r,d1,z1,z2)==True or lineRayIntersectionPoint(r,d2,z1,z2)==True:
             num_hits+=1
             break
         
 
-print(num_hits)   
+print(num_hits)  
+verjetnost_1=num_hits/num_tries
+print (verjetnost_1)
 
 
 
@@ -172,3 +159,6 @@ for plot_id in (1, 2, 3, 4, 5):
     ax.set_yticks(range(11))  
 plt.show()
 
+
+verjetnost_2 =hull1.area/hull.area
+print(verjetnost_2)
