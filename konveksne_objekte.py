@@ -163,6 +163,7 @@ for plot_id in (1, 2, 3, 4, 5):
         # a modre b rdece
         #ax.plot(*a.T, 'bo',markersize=3)
         ax.plot(*b.T, 'ro',markersize=3)
+        plt.text(9,0, verjetnost_1 , fontsize=10, bbox=dict(facecolor='red', alpha=0.5))
         
         
         
