@@ -28,7 +28,7 @@ points2= points1[hull1.vertices] # tocke na C1 notranji
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries = 50 #koliko krat NE gre skozi obe (stevilo premic)
+num_tries = 5 #koliko krat NE gre skozi obe (stevilo premic)
 
 print("Stevilo premic:", num_tries)
 
@@ -47,9 +47,8 @@ def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     v2=np.linalg.det([rayOrigin,rayDirection,point2])
     z1=np.linalg.det([point1,point2,rayOrigin])
     z2=np.linalg.det([point1,point2,rayDirection])
-    if z1*z2<=0 and v1*v2<=0:
-        return True
-    return False
+    
+    return (v1*v2<=0) & (z1*z2<=0)
    
 
 n = num_tries # stevilo premic
