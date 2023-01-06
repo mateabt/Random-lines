@@ -151,7 +151,7 @@ for plot_id in (1, 2, 3, 4, 5):
                 b[i] = np.array([np.random.uniform(bbox[0][0], bbox[1][0]), np.random.uniform(bbox[0][1], bbox[1][1])])
 
 
-        a=np.random.uniform(0, 10, size=(n, 2)) #dr tocka skozi katera grejo premice
+        #a=np.random.uniform(0, 10, size=(n, 2)) #dr tocka skozi katera grejo premice
         
         
         
