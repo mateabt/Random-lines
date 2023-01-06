@@ -80,6 +80,14 @@ print (verjetnost_1)
 
 
 
+verjetnost_2 =hull1.area/hull.area
+print(verjetnost_2)
+
+primerjava= abs(verjetnost_2-verjetnost_1)
+print(primerjava)
+
+
+
 for plot_id in (1, 2, 3, 4, 5): 
     fig, ax = plt.subplots(ncols=1, figsize=(5, 3)) #unpacks tuple into figure and ax (Ncols=Number of columns of the subplot grid default=1 lahko bi zbrisali ,figsize=velikost kvadratka)
     
@@ -150,6 +158,3 @@ for plot_id in (1, 2, 3, 4, 5):
     ax.set_yticks(range(11))  
 plt.show()
 
-
-verjetnost_2 =hull1.area/hull.area
-print(verjetnost_2)
