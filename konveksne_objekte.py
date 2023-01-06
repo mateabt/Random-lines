@@ -9,7 +9,6 @@ import random
 import math
 
 
-
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
 hull = ConvexHull(points) 
@@ -24,14 +23,6 @@ bbox = [hull.min_bound, hull.max_bound]
 num_hits = 0 # gre skozi obe hkrati
 num_tries = 4 #koliko krat NE gre skozi obe (stevilo premic)
 
-
-
-#def magnitude(vector):
-#   return np.sqrt(np.dot(np.array(vector),np.array(vector)))
-#
-#def norm(vector):
-#   return np.array(vector)/magnitude(np.array(vector))
-#
 
 # ne dela pravilno
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
