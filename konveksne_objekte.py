@@ -22,7 +22,7 @@ bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
 num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
-
+print("Stevilo premic:",num_tries)
 
 # ne dela pravilno
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
@@ -74,9 +74,9 @@ for i in range(len(b)):
             break
         
 
-print(num_hits)  
+print("Stevilo presekov :",num_hits)  
 verjetnost_1=num_hits/num_tries
-print (verjetnost_1)
+print ("Verjetnost da seka obe hkrati eksperimentalno:",verjetnost_1)
 
 
 vertices = hull.vertices.tolist() + [hull.vertices[0]]
@@ -86,10 +86,10 @@ vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
 perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])])
 
 verjetnost_2 =perimeter1/perimeter
-print(verjetnost_2)
+print("Razmerje med perimetrov konveksnih objektov: ",verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
-print(primerjava)
+print("Primerjava :",primerjava)
 
 
 
