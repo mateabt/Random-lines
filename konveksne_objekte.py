@@ -47,7 +47,6 @@ def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     v2=np.linalg.det([rayOrigin,rayDirection,point2])
     z1=np.linalg.det([point1,point2,rayOrigin])
     z2=np.linalg.det([point1,point2,rayDirection])
-    
     return (v1*v2<=0) & (z1*z2<=0)
    
 
@@ -68,15 +67,15 @@ for i in range(len(b)):
 
 for i in range(len(b)):
     r = b[i]
-    d1 = (10*math.cos(theta[i]),10*math.sin(theta[i])) # v eno smer
-    d2 =(-10*math.cos(theta[i]),-10*math.sin(theta[i])) # v dr smer
+    d1 = (math.cos(theta[i]),math.sin(theta[i])) # v eno smer
+    #d2 =(-math.cos(theta[i]),-math.sin(theta[i])) # v dr smer
     
     
     for j in range(len(points2)):
         z1 =points2[j-1]
         z2 = points2[j]
 
-        if lineRayIntersectionPoint(r,d1,z1,z2)==True or lineRayIntersectionPoint(r,d2,z1,z2)==True:
+        if lineRayIntersectionPoint(r,d1,z1,z2)==True :
             num_hits+=1
             break
         
