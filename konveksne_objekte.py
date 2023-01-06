@@ -28,15 +28,16 @@ points2= points1[hull1.vertices] # tocke na C1 notranji
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
-print("Stevilo premic:",num_tries)
+num_tries = 50 #koliko krat NE gre skozi obe (stevilo premic)
+
+print("Stevilo premic:", num_tries)
 
 # ne dela pravilno
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
-    rayOrigin = np.array(rayOrigin, dtype=np.float)
-    rayDirection = np.array(rayDirection, dtype=np.float)
-    point1 = np.array(point1, dtype=np.float)
-    point2 = np.array(point2, dtype=np.float)
+    rayOrigin = np.array(rayOrigin, dtype=float)
+    rayDirection = np.array(rayDirection, dtype=float)
+    point1 = np.array(point1, dtype=np.float64)
+    point2 = np.array(point2, dtype=np.float64)
     
     rayOrigin = np.append(1,rayOrigin)
     rayDirection = np.append(1,rayDirection)
