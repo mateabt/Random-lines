@@ -7,7 +7,7 @@ from itertools import combinations
 from typing import Union, Tuple
 import random
 import math
-from scipy.spatial.distance import euclidean
+
 
 
 num=15
