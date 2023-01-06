@@ -8,11 +8,12 @@ from typing import Union, Tuple
 import random
 import math
 from scipy.spatial.distance import euclidean
-import subprocess 
+
+#import sys
+#file = open('output.txt', 'w')
+#sys.stdout = file
 
 
-file_ = open("out.txt", "w") 
-subprocess.Popen("ls", stdout=file_) 
 
 
 num=15
@@ -168,4 +169,4 @@ for plot_id in (1, 2, 3, 4, 5):
     ax.set_xticks(range(11)) # velikost osi 0-10
     ax.set_yticks(range(11))  
 plt.show()
-file_.close() 
+#file.close()
