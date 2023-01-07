@@ -8,7 +8,7 @@ num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
 hull = ConvexHull(points) 
 
-points1 = npi.difference(points,points[hull.vertices]) #tocke brez tiste na ovojnici C1
+points1 = npi.difference(points,points[hull.vertices]) #tocke brez tistih na ovojnici C
 hull1= ConvexHull(points1) 
 
 #Bounding box
@@ -29,7 +29,7 @@ for plot_id in (1, 2, 3, 4, 5):
         ax.set_title('Dane tocke') 
         ax.plot(points[:, 0], points[:, 1], '.', color='k')# black dots (first coordinate points[:, 0] second  points[:, 1])     
     if plot_id == 2:
-        ax.set_title('konveksna ovojnica konveksnega objekta C1') 
+        ax.set_title('konveksna ovojnica konveksnega objekta C') 
         ax.plot(points[:, 0], points[:, 1], '.', color='k')# black dots (first coordinate points[:, 0] second  points[:, 1])  
         for simplex in hull.simplices: # hull.simplicies ti da indekse 
             ax.plot(points[simplex, 0], points[simplex, 1], 'c') #narise ovojnico v cyan  
@@ -37,12 +37,12 @@ for plot_id in (1, 2, 3, 4, 5):
    
     if plot_id == 3:
         ax.plot(points[:, 0], points[:, 1], '.', color='k')# black dots (first coordinate points[:, 0] second  points[:, 1])  
-        ax.set_title('Dane tocke po odstranitvi tiste iz nadobjekta C1')
+        ax.set_title('Dane tocke po odstranitvi tiste iz nadobjekta C')
         ax.plot(points1[:, 0], points1[:, 1], '.', color='r')
         
     if plot_id==4:
         
-        ax.set_title('konveksni ovojnici konveksnih objektov C1 in C2')
+        ax.set_title('konveksni ovojnici konveksnih objektov C in C1')
         ax.plot(points[:, 0], points[:, 1], '.', color='k')# black dots (first coordinate points[:, 0] second  points[:, 1])   
         for simplex in hull.simplices: # hull.simplicies ti da indekse 
             ax.plot(points[simplex, 0], points[simplex, 1], 'c') #narise ovojnico v cyan  
@@ -68,7 +68,7 @@ for plot_id in (1, 2, 3, 4, 5):
         for i in range(n):
             #nakljucna tocka v C skozi katero grejo
             b[i] = np.array([np.random.uniform(bbox[0][0], bbox[1][0]), np.random.uniform(bbox[0][1], bbox[1][1])])
-            #Preverimo ce je res v c           
+            #Preverimo ce je res v C           
             while Path(hull.points[hull.vertices] ).contains_point(b[i]) == False:
                 b[i] = np.array([np.random.uniform(bbox[0][0], bbox[1][0]), np.random.uniform(bbox[0][1], bbox[1][1])])
 
