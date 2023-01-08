@@ -167,4 +167,4 @@ for plot_id in (1, 2, 3, 4, 5):
     ax.set_xticks(range(11)) # velikost osi 0-10
     ax.set_yticks(range(11))  
 plt.show()
-#file.close()
+
