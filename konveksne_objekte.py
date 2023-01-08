@@ -8,6 +8,12 @@ from typing import Union, Tuple
 import random
 import math
 from scipy.spatial.distance import euclidean
+import sys
+
+f = open("out.txt", 'a')
+sys.stdout = f
+
+
 
 
 num=15
@@ -21,9 +27,10 @@ points2= points1[hull1.vertices] # tocke na C1 notranji
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries = 5 #koliko krat NE gre skozi obe (stevilo premic)
+num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
 
 print("Stevilo premic:", num_tries)
+print('_' * 10)
 
 
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
@@ -158,6 +165,7 @@ for plot_id in (1, 2, 3, 4, 5):
  
     
 plt.show()
+f.close()
 
 
 
