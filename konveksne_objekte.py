@@ -87,7 +87,7 @@ vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
 perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])]) #obseg objekta C1
 
 verjetnost_2 =perimeter1/perimeter
-print("Razmerje med perimetrov konveksnih objektov: ",verjetnost_2)
+print("Razmerje med obsegoma konveksnih objektov: ",verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
 print("Primerjava :",primerjava)
