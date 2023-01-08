@@ -1,0 +1,5 @@
+Stevilo premic: 5
+Stevilo presekov : 5
+Verjetnost da seka obe hkrati eksperimentalno: 1.0
+Razmerje med perimetrov konveksnih objektov:  0.6379064897337312
+Primerjava : 0.3620935102662688
