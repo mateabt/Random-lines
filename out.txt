@@ -27,3 +27,16 @@ Stevilo presekov : 17
 Verjetnost da seka obe hkrati eksperimentalno: 0.85
 Razmerje med perimetrov konveksnih objektov:  0.5550093283090112
 Primerjava : 0.2949906716909888
+_________________________
+Stevilo premic: 100
+Stevilo presekov : 92
+Verjetnost da seka obe hkrati eksperimentalno: 0.92
+Razmerje med perimetrov konveksnih objektov:  0.7892159960747438
+Primerjava : 0.13078400392525624
+_________________________
+Stevilo premic: 1000
+Stevilo presekov : 848
+Verjetnost da seka obe hkrati eksperimentalno: 0.848
+Razmerje med perimetrov konveksnih objektov:  0.7326084423923283
+Primerjava : 0.11539155760767172
+_________________________
