@@ -18,17 +18,17 @@ sys.stdout = f
 
 
 num=15
-points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
+points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 točk med 0 in 10)
 hull = ConvexHull(points) 
-points1 = npi.difference(points,points[hull.vertices]) #tocke brez tiste na ovojnici vecje C
+points1 = npi.difference(points,points[hull.vertices]) #tocke brez tistih na ovojnici vecjega objekta C
 hull1= ConvexHull(points1) 
-points2= points1[hull1.vertices] # tocke na C1 notranji
+points2= points1[hull1.vertices] # tocke na C1 notranjega objekta
 
 #Bounding box
 bbox = [hull.min_bound, hull.max_bound]
 
-num_hits = 0 # gre skozi obe hkrati
-num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
+num_hits = 0 # stevilo premic, ki gredo skozi oba objekta hkrati
+num_tries = 10 #stevilo premic, ki jih opazujemo
 
 print ("Stevilo premic:", num_tries)
 
@@ -87,10 +87,10 @@ print ("Verjetnost da seka obe hkrati eksperimentalno:",verjetnost_1)
 
 
 vertices = hull.vertices.tolist() + [hull.vertices[0]]
-perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices], points[vertices][1:])])
+perimeter = np.sum([euclidean(x, y) for x, y in zip(points[vertices], points[vertices][1:])]) #obseg objekta C
 
 vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
-perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])])
+perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])]) #obseg objekta C1
 
 verjetnost_2 =perimeter1/perimeter
 print("Razmerje med perimetrov konveksnih objektov: ",verjetnost_2)
