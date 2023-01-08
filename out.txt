@@ -27,3 +27,4 @@ Stevilo presekov : 17
 Verjetnost da seka obe hkrati eksperimentalno: 0.85
 Razmerje med perimetrov konveksnih objektov:  0.5550093283090112
 Primerjava : 0.2949906716909888
+_________________________
