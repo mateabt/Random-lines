@@ -66,14 +66,16 @@ for i in range(len(b)):
 
 for i in range(len(b)):
     r = b[i]
-    d1 = ( math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
+    d1 = (10* math.cos(theta[i]),10*math.sin(theta[i])) 
+    d2 = (-10* math.cos(theta[i]),-10*math.sin(theta[i]))# v eno smer ker gleda za poltrak
     r1 = np.add(r,d1) #pristejemo k rayorigin
-    
+    r2 = np.add(r,d2)
+
     for j in range(len(points2)):
         z1 =points2[j-1]
         z2 = points2[j]
 
-        if lineRayIntersectionPoint(r,r1,z1,z2)==True :
+        if lineRayIntersectionPoint(r,r1,z1,z2)==True or lineRayIntersectionPoint(r,r2,z1,z2)==True :
             num_hits+=1
             break
         
@@ -148,10 +150,14 @@ for plot_id in (1, 2, 3, 4, 5):
         for i in range(len(b)):
           #  ax.axline(a[i],b[i], linewidth=1, color='k')
             r = b[i]
-            d1 = ( math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
+            d1 = ( 10*math.cos(theta[i]),10*math.sin(theta[i])) # v eno smer ker gleda za poltrak
             r1 = np.add(r,d1) #pristejemo k rayorigin
+            
+            d2 =((-10)*math.cos(theta[i]),(-10)*math.sin(theta[i]))
+            r2 = np.add(r,d2) #pristejemo k rayorigin
             ax.axline(b[i],r1,color='k') 
-            ax.plot(*r1.T, 'bo',markersize=3)             
+            ax.plot(*r1.T, 'bo',markersize=3)
+            ax.plot(*r2.T, 'yo',markersize=3)             
         # a modre b rdece
         #ax.plot(*a.T, 'bo',markersize=3)
         ax.plot(*b.T, 'ro',markersize=3)
