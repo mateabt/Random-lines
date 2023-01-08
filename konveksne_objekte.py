@@ -25,7 +25,7 @@ num_tries = 5 #koliko krat NE gre skozi obe (stevilo premic)
 
 print("Stevilo premic:", num_tries)
 
-# ne dela pravilno
+
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     rayOrigin = np.array(rayOrigin, dtype=float)
     rayDirection = np.array(rayDirection, dtype=float)
@@ -134,11 +134,6 @@ for plot_id in (1, 2, 3, 4, 5):
         
         for simplex in hull1.simplices: # hull.simplicies ti da indekse 
             ax.plot(points1[simplex, 0], points1[simplex, 1], 'lightgreen') #narise ovojnico v cyan  
-        
-        
-
-        #a=np.random.uniform(0, 10, size=(n, 2)) #dr tocka skozi katera grejo premice
-        
         
         
         for i in range(len(b)):
