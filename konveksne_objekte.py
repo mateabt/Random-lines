@@ -139,15 +139,7 @@ for plot_id in (1, 2, 3, 4, 5):
         for simplex in hull1.simplices: # hull.simplicies ti da indekse 
             ax.plot(points1[simplex, 0], points1[simplex, 1], 'lightgreen') #narise ovojnico v cyan  
         
-        n = num_tries # stevilo premic
-        b = np.empty((n, 2))
-        for i in range(n):
-            #nakljucna tocka v C skozi katero grejo
-            b[i] = np.array([np.random.uniform(bbox[0][0], bbox[1][0]), np.random.uniform(bbox[0][1], bbox[1][1])])
-            #Preverimo ce je res v c           
-            while Path(hull.points[hull.vertices] ).contains_point(b[i]) == False:
-                b[i] = np.array([np.random.uniform(bbox[0][0], bbox[1][0]), np.random.uniform(bbox[0][1], bbox[1][1])])
-
+        
 
         #a=np.random.uniform(0, 10, size=(n, 2)) #dr tocka skozi katera grejo premice
         
@@ -155,16 +147,37 @@ for plot_id in (1, 2, 3, 4, 5):
         
         for i in range(len(b)):
           #  ax.axline(a[i],b[i], linewidth=1, color='k')
-            ax.axline(b[i],(math.cos(theta[i]),math.sin(theta[i])),color='k')
-                      
+            r = b[i]
+            d1 = ( math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
+            r1 = np.add(r,d1) #pristejemo k rayorigin
+            ax.axline(b[i],r1,color='k') 
+            ax.plot(*r1.T, 'bo',markersize=3)             
         # a modre b rdece
         #ax.plot(*a.T, 'bo',markersize=3)
         ax.plot(*b.T, 'ro',markersize=3)
+        
+        
         plt.text(9,0, verjetnost_1 , fontsize=10, bbox=dict(facecolor='red', alpha=0.5))
         
         
         
     ax.set_xticks(range(11)) # velikost osi 0-10
     ax.set_yticks(range(11))  
+    
+    
+    
+    
+    
+    
+    
+    
+    
 plt.show()
+
+
+
+
+
+
+
 #file.close()
