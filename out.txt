@@ -5,8 +5,25 @@ Razmerje med perimetrov konveksnih objektov:  0.5834110842421817
 Primerjava : 0.21658891575781836
 _________________________
 Stevilo premic: 5
-Stevilo presekov : 5
-Verjetnost da seka obe hkrati eksperimentalno: 1.0
-Razmerje med perimetrov konveksnih objektov:  0.6599042488389675
-Primerjava : 0.3400957511610325
+Stevilo presekov : 3
+Verjetnost da seka obe hkrati eksperimentalno: 0.6
+Razmerje med perimetrov konveksnih objektov:  0.6567108861061377
+Primerjava : 0.056710886106137726
 _________________________
+Stevilo premic: 10
+Stevilo presekov : 8
+Verjetnost da seka obe hkrati eksperimentalno: 0.8
+Razmerje med perimetrov konveksnih objektov:  0.6965224589290716
+Primerjava : 0.10347754107092844
+_________________________
+Stevilo premic: 10
+Stevilo presekov : 9
+Verjetnost da seka obe hkrati eksperimentalno: 0.9
+Razmerje med perimetrov konveksnih objektov:  0.646096872828606
+Primerjava : 0.25390312717139407
+_________________________
+Stevilo premic: 20
+Stevilo presekov : 17
+Verjetnost da seka obe hkrati eksperimentalno: 0.85
+Razmerje med perimetrov konveksnih objektov:  0.5550093283090112
+Primerjava : 0.2949906716909888

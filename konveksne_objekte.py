@@ -11,7 +11,7 @@ from scipy.spatial.distance import euclidean
 import sys
 
 f = open('out.txt','a')
-sys.stdout = f
+
 
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 točk med 0 in 10)
@@ -24,7 +24,7 @@ points2= points1[hull1.vertices] # tocke na C1 notranjega objekta
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries =10 #koliko krat NE gre skozi obe (stevilo premic)
+num_tries =5 #koliko krat NE gre skozi obe (stevilo premic)
 
 print("Stevilo premic:", num_tries)
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
