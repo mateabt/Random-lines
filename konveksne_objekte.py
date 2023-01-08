@@ -10,12 +10,8 @@ import math
 from scipy.spatial.distance import euclidean
 import sys
 
-f = open("out.txt", 'a')
+f = open('out.txt','a')
 sys.stdout = f
-
-
-
-
 
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
@@ -28,11 +24,9 @@ points2= points1[hull1.vertices] # tocke na C1 notranji
 bbox = [hull.min_bound, hull.max_bound]
 
 num_hits = 0 # gre skozi obe hkrati
-num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
+num_tries =100 #koliko krat NE gre skozi obe (stevilo premic)
 
-print ("Stevilo premic:", num_tries)
-
-
+print("Stevilo premic:", num_tries)
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     rayOrigin = np.array(rayOrigin, dtype=float)
     rayDirection = np.array(rayDirection, dtype=float)
@@ -97,6 +91,7 @@ print("Razmerje med perimetrov konveksnih objektov: ",verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
 print("Primerjava :",primerjava)
+print('_'*25)
 
 
 
@@ -142,7 +137,7 @@ for plot_id in (1, 2, 3, 4, 5):
         for simplex in hull1.simplices: # hull.simplicies ti da indekse 
             ax.plot(points1[simplex, 0], points1[simplex, 1], 'lightgreen') #narise ovojnico v cyan  
         
-        
+      
         for i in range(len(b)):
           #  ax.axline(a[i],b[i], linewidth=1, color='k')
             r = b[i]
@@ -165,7 +160,6 @@ for plot_id in (1, 2, 3, 4, 5):
  
     
 plt.show()
-f.close()
 
 
 
