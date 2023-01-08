@@ -16,6 +16,7 @@ sys.stdout = f
 
 
 
+
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
 hull = ConvexHull(points) 
@@ -29,8 +30,7 @@ bbox = [hull.min_bound, hull.max_bound]
 num_hits = 0 # gre skozi obe hkrati
 num_tries = 10 #koliko krat NE gre skozi obe (stevilo premic)
 
-print("Stevilo premic:", num_tries)
-print('_' * 10)
+print ("Stevilo premic:", num_tries)
 
 
 def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
