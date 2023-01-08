@@ -9,12 +9,6 @@ import random
 import math
 from scipy.spatial.distance import euclidean
 
-#import sys
-#file = open('output.txt', 'w')
-#sys.stdout = file
-
-
-
 
 num=15
 points = np.random.uniform(0, 10, size=(num, 2))  # Random points in 2-D (15 between 0 ans 10)
@@ -158,14 +152,11 @@ for plot_id in (1, 2, 3, 4, 5):
             ax.axline(b[i],r1,color='k') 
             ax.plot(*r1.T, 'bo',markersize=3)
             ax.plot(*r2.T, 'yo',markersize=3)             
-        # a modre b rdece
-        #ax.plot(*a.T, 'bo',markersize=3)
+        
         ax.plot(*b.T, 'ro',markersize=3)
         
         
-        plt.text(9,0, verjetnost_1 , fontsize=10, bbox=dict(facecolor='red', alpha=0.5))
-        
-        
+        plt.text(9,0, verjetnost_1 , fontsize=10, bbox=dict(facecolor='red', alpha=0.5)) #okno z ekspreimentalni rez
         
     ax.set_xticks(range(11)) # velikost osi 0-10
     ax.set_yticks(range(11))  
