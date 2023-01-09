@@ -39,10 +39,7 @@ def lineRayIntersectionPoint(rayOrigin, rayDirection, point1, point2):
     point2=np.append(1,point2)
     v1=np.linalg.det([rayOrigin,rayDirection,point1])
     v2=np.linalg.det([rayOrigin,rayDirection,point2])
-    z1=np.linalg.det([point1,point2,rayOrigin])
-    z2=np.linalg.det([point1,point2,rayDirection])
-    return (v1*v2<=0) & (z1*z2<=0)
-   
+    return (v1*v2<=0) 
 
 n = num_tries # stevilo premic
 b= np.empty((n, 2))
@@ -61,16 +58,14 @@ for i in range(len(b)):
 
 for i in range(len(b)):
     r = b[i]
-    d1 = (10* math.cos(theta[i]),10*math.sin(theta[i])) 
-    d2 = (-10* math.cos(theta[i]),-10*math.sin(theta[i]))# v eno smer ker gleda za poltrak
+    d1 = ( math.cos(theta[i]),math.sin(theta[i])) 
     r1 = np.add(r,d1) #pristejemo k rayorigin
-    r2 = np.add(r,d2)
 
     for j in range(len(points2)):
         z1 =points2[j-1]
         z2 = points2[j]
 
-        if lineRayIntersectionPoint(r,r1,z1,z2)==True or lineRayIntersectionPoint(r,r2,z1,z2)==True :
+        if lineRayIntersectionPoint(r,r1,z1,z2)==True :
             num_hits+=1
             break
         
@@ -87,7 +82,7 @@ vertices1 = hull1.vertices.tolist() + [hull1.vertices[0]]
 perimeter1 = np.sum([euclidean(x, y) for x, y in zip(points1[vertices1], points1[vertices1][1:])]) #obseg objekta C1
 
 verjetnost_2 =perimeter1/perimeter
-print("Razmerje med obsegoma konveksnih objektov: ",verjetnost_2)
+print("Razmerje med perimetrov konveksnih objektov: ",verjetnost_2)
 
 primerjava= abs(verjetnost_2-verjetnost_1)
 print("Primerjava :",primerjava)
@@ -136,16 +131,13 @@ for plot_id in (1, 2, 3, 4, 5):
         
       
         for i in range(len(b)):
-          #  ax.axline(a[i],b[i], linewidth=1, color='k')
             r = b[i]
-            d1 = ( 10*math.cos(theta[i]),10*math.sin(theta[i])) # v eno smer ker gleda za poltrak
+            d1 = (math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
             r1 = np.add(r,d1) #pristejemo k rayorigin
-            
-            d2 =((-10)*math.cos(theta[i]),(-10)*math.sin(theta[i]))
-            r2 = np.add(r,d2) #pristejemo k rayorigin
+               
             ax.axline(b[i],r1,color='k') 
             ax.plot(*r1.T, 'bo',markersize=3)
-            ax.plot(*r2.T, 'yo',markersize=3)             
+                       
         
         ax.plot(*b.T, 'ro',markersize=3)
         
@@ -159,6 +151,9 @@ for plot_id in (1, 2, 3, 4, 5):
 plt.show()
 
 # f.close()
+
+
+
 
 
 
