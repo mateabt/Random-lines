@@ -1,13 +1,12 @@
-from scipy.spatial import ConvexHull
-import matplotlib.pyplot as plt
-import numpy as np
-import numpy_indexed as npi
-from matplotlib.path import Path
-from typing import Union, Tuple
-import random
+from scipy.spatial import ConvexHull # za ovojnice
+import matplotlib.pyplot as plt # za graficni prikaz
+import numpy as np 
+import numpy_indexed as npi # iskanje tocke ki niso v zunanji ovojnici
+from matplotlib.path import Path # za tocke v ovojnici
+import random #random st
 import math
-from scipy.spatial.distance import euclidean
-import sys
+from scipy.spatial.distance import euclidean # za perimeter
+import sys # za ispis v out.txt
 
 #f = open('out.txt','a') za izpis v put.txt
 #sys.stdout = f
