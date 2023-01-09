@@ -87,12 +87,11 @@ Da sva preverili sekanje sva si pomagali z determinantami, in sicer sva izbrali 
         \filldraw[black] (0,0) circle (2pt) node[anchor=west]{$p_2$};
     \end{tikzpicture}
 \end{center}
-Označimo $\Lambda(p_1,p_2,p_3) = \begin{vmatrix}
+Označimo $$\Lambda(p_1,p_2,p_3) = \begin{vmatrix}
      1 & x_{1} & y_{1}\\ 
      1 & x_{2} & y_{2}\\
      1 & x_{3} & y_{3} 
-\end{vmatrix}$. Vemo, da se $\overrightarrow{\rm p_1p_2}$ in $\overrightarrow{\rm p_3p_4}$ sekata $\Leftrightarrow$ \\ $[\Lambda(p_1,p_2,p_3)\cdot\Lambda(p_1,p_2,p_4)]\leq 0  \land 
-[\Lambda(p_3,p_3,p_1)\cdot\Lambda(p_3,p_3,p_2)]\leq 0$.
+\end{vmatrix}$$. Vemo, da se naključna premica, na kateri sta točki $p_1$ in $p_2$, in daljica $\overrightarrow{\rm p_3p_4}$ sekata $\Leftrightarrow$ $[\Lambda(p_1,p_2,p_3)\cdot\Lambda(p_1,p_2,p_4)]\leq 0.$ \\
 S pomočjo te informacije lahko za vsako premico preverimo, če seka $C'$.
 Verjetnost, da premica seka $C'$, če vemo, da seka $C$, je v tem primeru dana s koeficientom $$\frac{število\ premic,\ ki\ sekajo\ C'}{število\ premic,\ ki\ jih\ gledamo}.$$
 Ogledali sva si primere različnega števila premic in pogledali ujemanje z zgoraj izpeljano formulo $$P(premica\ l\ seka\ C'\ |\ premica\ l\ seka\ C)=\frac{obseg(C')}{obseg(C)}.$$
