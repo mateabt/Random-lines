@@ -133,8 +133,7 @@ for plot_id in (1, 2, 3, 4, 5):
         for i in range(len(b)):
             r = b[i]
             d1 = (math.cos(theta[i]),math.sin(theta[i])) # v eno smer ker gleda za poltrak
-            r1 = np.add(r,d1) #pristejemo k rayorigin
-               
+            r1 = np.add(r,d1) #pristejemo k rayorigin    
             ax.axline(b[i],r1,color='k') 
             ax.plot(*r1.T, 'bo',markersize=3)
                        
