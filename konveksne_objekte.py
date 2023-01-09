@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy_indexed as npi
 from matplotlib.path import Path
-from itertools import combinations
 from typing import Union, Tuple
 import random
 import math
