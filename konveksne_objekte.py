@@ -150,12 +150,3 @@ for plot_id in (1, 2, 3, 4, 5):
 plt.show()
 
 # f.close()
-
-
-
-
-
-
-
-
-
